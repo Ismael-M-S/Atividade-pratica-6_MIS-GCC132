@@ -11,7 +11,7 @@ export class HomePage {
   weight: number;
   height: number;
 
-  constructor(private toastController: ToastController) {}
+  constructor(private toastController: ToastController) { }
 
   isFormValid() {
     return (this.height && this.weight && this.height > 0 && this.weight > 0);
@@ -20,6 +20,8 @@ export class HomePage {
   onCalculate() {
     const imc = this.weight / (this.height * this.height);
     this.showMessage(`IMC = ${imc.toFixed(2)}`);
+
+    this.exibirInterpretacaoIMC(this.interpretarIMC(imc));
   }
 
   async showMessage(msg: string) {
@@ -40,5 +42,28 @@ export class HomePage {
       }
     );
     toast.present();
+  }
+
+  exibirInterpretacaoIMC(interpretacao: string) {
+    let trs = document.getElementsByTagName("tr");
+    for (let i = 0; i < trs.length; i++) {
+      if (trs[i].id == interpretacao)
+        trs[i].setAttribute("style", "background: lightskyblue;");
+      else
+        trs[i].setAttribute("style", "");
+    }
+  }
+
+  interpretarIMC(imc: number) {
+    if (imc < 18.5)
+      return "magreza";
+    else if (imc < 25)
+      return "normal";
+    else if (imc < 30)
+      return "sobrepeso";
+    else if (imc < 40)
+      return "obesidade";
+    else
+      return "obesidade_grave";
   }
 }

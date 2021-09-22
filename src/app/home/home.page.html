@@ -18,4 +18,52 @@
     <ion-label position="floating">Altura (m)</ion-label>
     <ion-input type="number" [(ngModel)]="height"></ion-input>
   </ion-item>
+
+  <table class="table-calc" cellspacing="0">
+
+    <thead>
+      <tr>
+        <td colspan="3">Veja a interpretação do IMC</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>IMC</td>
+        <td>Classificação</td>
+        <td>Obesidade <small>(grau)</small></td>
+      </tr>
+
+      <tr id="magreza">
+        <td>IMC < 18,5</td>
+        <td>Magreza</td>
+        <td>0</td>
+      </tr>
+
+      <tr id="normal">
+        <td>18,5 <= IMC < 25</td>
+        <td>Normal</td>
+        <td>0</td>
+      </tr>
+
+      <tr id="sobrepeso">
+        <td>25 <= IMC < 30</td>
+        <td>Sobrepeso</td>
+        <td>I</td>
+      </tr>
+
+      <tr id="obesidade">
+        <td>30 <= IMC < 40</td>
+        <td>Obesidade</td>
+        <td>II</td>
+      </tr>
+
+      <tr id="obesidade_grave">
+        <td>IMC > 40</td>
+        <td>Obesidade Grave</td>
+        <td>III</td>
+      </tr>
+    </tbody>
+
+  </table>
 </ion-content>
