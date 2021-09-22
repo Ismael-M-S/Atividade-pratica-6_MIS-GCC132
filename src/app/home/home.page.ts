@@ -48,7 +48,7 @@ export class HomePage {
     let trs = document.getElementsByTagName("tr");
     for (let i = 0; i < trs.length; i++) {
       if (trs[i].id == interpretacao)
-        trs[i].setAttribute("style", "background: lightskyblue;");
+        trs[i].setAttribute("style", "background-color: var(--ion-color-light-tint); color: var(--ion-color-light-contrast);");
       else
         trs[i].setAttribute("style", "");
     }
